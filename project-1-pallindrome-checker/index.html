@@ -7,7 +7,6 @@
     <meta name="author" content="Zafar Ahasan">
     <title>Palindrome Checker</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -18,16 +17,16 @@
         </header>
 
         <section id="palindrome-input-section">
-            <form>
-                <label for="text-input">
-                    Enter in text to check for a palindrome:
-                    <input type="text" id="text-input" required>
-                    <button type="button" id="check-btn">Check</button>
-                </label>
-            </form>
+
+            <label for="text-input">
+                Enter in text to check for a palindrome:
+                <input type="text" id="text-input" value="" name="str" required>
+                <button type="button" id="check-btn">Check</button>
+            </label>
         </section>
         <section id="result-section">
-            <div id="result"></div>
+            <div id="result">
+            </div>
         </section>
         <section id="palindrome-definition-section">
             <p class="palindrome-definition">
@@ -38,6 +37,7 @@
             </p>
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
