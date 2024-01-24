@@ -4,8 +4,19 @@ const result = document.getElementById("result");
 
 function getInput() {
     const text = textInput.value;
-    text ? "Ok" : window.alert("Please input a value");
-    return text;
+    if(!text) {
+        window.alert("Please input a value");
+        return;
+    }
+    if(isPalindrome(text)) {
+        result.innerText = `${text} is a Palindrome`;
+        return;
+    } else {
+        result.innerText = `${text} is not a Palindrome`;
+        return;
+    }
+    // getInput.value = "";
+    // return text;
 }
 
 function isPalindrome(text) {
@@ -15,23 +26,23 @@ function isPalindrome(text) {
             return false;
         }
     }
-}
-function reset() {
-    result.innerHTML = "";
-}
-
-function showResult() {
-    const text = getInput();
-    const text2 = text.trim().toLowerCase();
-    const isTrue = isPalindrome(text2);
-    if (isTrue) {
-        result.innerHTML = `<h2>${text} is a Palindrome</h2>`
-    }
-    else {
-        result.innerHTML = `<h2>${text}  is not a palindrome</h2>`
-    }
+    return true;
 }
 
 
-checkButton.addEventListener('click', showResult);
+// function showResult() {
+//     const text = getInput();
+//     const text2 = text.trim().toLowerCase();
+//     const isTrue = isPalindrome(text2);
+//     if (isTrue) {
+//         result.innerHTML = `<h2>${text} is a Palindrome</h2>`
+//     }
+//     else {
+//         result.innerHTML = `<h2>${text}  is not a palindrome</h2>`
+//     }
+    
+// }
+
+
+checkButton.addEventListener('click', getInput);
 
