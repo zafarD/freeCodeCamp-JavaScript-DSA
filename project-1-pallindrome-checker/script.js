@@ -3,20 +3,22 @@ const checkButton = document.getElementById("check-btn");
 const result = document.getElementById("result");
 
 function getInput() {
-    const text = textInput.value;
+    const regex = /[^a-zA-Z0-9]/g;
+    const inputText = textInput.value;
+    const text = inputText.replace(regex, '').toLowerCase()
+    console.log(text);
     if(!text) {
         window.alert("Please input a value");
         return;
     }
     if(isPalindrome(text)) {
-        result.innerText = `${text} is a Palindrome`;
+        result.innerText = `${inputText} is a Palindrome`;
         return;
     } else {
-        result.innerText = `${text} is not a Palindrome`;
+        result.innerText = `${inputText} is not a Palindrome`;
         return;
     }
-    // getInput.value = "";
-    // return text;
+    
 }
 
 function isPalindrome(text) {
@@ -29,20 +31,10 @@ function isPalindrome(text) {
     return true;
 }
 
-
-// function showResult() {
-//     const text = getInput();
-//     const text2 = text.trim().toLowerCase();
-//     const isTrue = isPalindrome(text2);
-//     if (isTrue) {
-//         result.innerHTML = `<h2>${text} is a Palindrome</h2>`
-//     }
-//     else {
-//         result.innerHTML = `<h2>${text}  is not a palindrome</h2>`
-//     }
-    
-// }
-
-
 checkButton.addEventListener('click', getInput);
+textInput.addEventListener('keydown',(e) => {
+    if (e.key === "Enter") {
+        getInput();
+    }
+});
 
